@@ -289,7 +289,7 @@ fn overlay(node: &mut Media, chain: &mut Filters, config: &PlayoutConfig) {
         && &node.category != "advertisement"
     {
         let mut logo_chain = format!(
-            "null[v];movie={}:loop=loop=1:size=1:start=0,setpts=N/(FRAME_RATE*TB),format=rgba,colorchannelmixer=aa={}[l];[v][l]{}:shortest=1",
+            "null[v];movie={}:loop=1,setpts=N/(FRAME_RATE*TB),format=rgba,colorchannelmixer=aa={}[l];[v][l]{}:shortest=1",
             config.processing.logo, config.processing.logo_opacity, config.processing.logo_filter
         );
 
